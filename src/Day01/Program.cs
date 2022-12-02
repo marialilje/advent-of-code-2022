@@ -1,5 +1,5 @@
 ﻿
-const string fileName = "Inputs/Day1.txt";
+const string fileName = "input.txt";
 
 var puzzleInput = File.ReadAllLines(fileName);
 var largestCalorie = 0;
@@ -20,6 +20,7 @@ foreach (var line in puzzleInput)
         currentElfCalories = 0;
     }
 }
+
 if (currentElfCalories > largestCalorie)
 {
     largestCalorie = currentElfCalories;
