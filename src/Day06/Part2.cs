@@ -6,9 +6,7 @@ public static class Part2
     {
         const string fileName = "input.txt";
         var communicationDatastream = File.ReadAllText(fileName);
-
-        // var characterQueue = CreateQueue(communicationDatastream);
-
+        
         var characterQueue = new Queue<char>(14);
         var startOfPacketMarker = new Dictionary<int, char>();
 
@@ -20,19 +18,13 @@ public static class Part2
             {
                 characterQueue.Dequeue();
             }
-            // Console.WriteLine(characterQueue.ToArray());
-            
-            
 
             if (characterQueue.Distinct().Count() == 14)
             {
-                // Console.WriteLine(characterQueue.Distinct().Count());
                 startOfPacketMarker.Add(i +1, character);
             }
             
         }
-        
-        Console.WriteLine(characterQueue.ToArray());
         Console.WriteLine(startOfPacketMarker.First());
     }
 }
