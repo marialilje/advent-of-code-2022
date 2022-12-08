@@ -36,8 +36,15 @@ public static class Part2
         rootDirectory.MeasureSizes(results);
 
         var orderedResults = results.Values.OrderByDescending(n => n);
-        Console.WriteLine(orderedResults.First());
+        var rootSize = orderedResults.First();
+        var freeSpace = 70000000 - rootSize;
+        var amountToFreeUp = 30000000 - freeSpace;
+        
+        var filteredResult = orderedResults.Where(size => size >= amountToFreeUp);
 
-        return results.Values.Sum().ToString();
+        var closest = filteredResult.MinBy(v => Math.Abs(v - amountToFreeUp));
+        // Console.WriteLine(filteredResult.First());
+
+        return closest.ToString();
     }
 }
