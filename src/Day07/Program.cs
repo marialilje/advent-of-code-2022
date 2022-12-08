@@ -1,4 +1,7 @@
 ﻿using Day07;
+using File = System.IO.File;
 
-Part1.Run();
-Part2.Run();
+var fileName = File.ReadAllText("input.txt");
+
+Console.WriteLine($"Part 1: {(Part1.Run(fileName))}");
+Console.WriteLine($"Part 2: {(Part2.Run(fileName))}");
